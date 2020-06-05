@@ -1,9 +1,13 @@
 from json import loads
 from os.path import dirname, join
+from os import environ
 
 from django.core.exceptions import ImproperlyConfigured
 
-SETTINGS_DIR = dirname(__file__)
+SETTINGS_DIR = environ.get('SETTINGS_DIR')
+if SETTINGS_DIR is None:
+    SETTINGS_DIR = dirname(__file__)
+
 
 with open(join(SETTINGS_DIR, 'settings.json')) as file_handler:
     settings = loads(file_handler.read())
