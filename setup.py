@@ -5,7 +5,7 @@ with open('README.md', 'r') as f:
 
 setup(
     name="django-settings-json",
-    version="1.0.1",
+    version="1.0.2",
     author="Andre Pereira",
     author_email="django-settings-json@aper.com.br",
     description="Django Settings JSON is a small package for helping you have environment variables when you can't use them directly from your operational system.",
