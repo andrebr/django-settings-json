@@ -1,15 +1,11 @@
 from json import loads
-from os.path import dirname, join
-from os import environ
+from os import environ, path
 
 from django.core.exceptions import ImproperlyConfigured
 
-SETTINGS_DIR = environ.get('SETTINGS_DIR')
-if SETTINGS_DIR is None:
-    SETTINGS_DIR = dirname(__file__)
+SETTINGS_DIR = environ.get('SETTINGS_DIR', path.dirname(__file__))
 
-
-with open(join(SETTINGS_DIR, 'settings.json')) as file_handler:
+with open(path.join(SETTINGS_DIR, 'settings.json')) as file_handler:
     settings = loads(file_handler.read())
 
 
@@ -21,5 +17,5 @@ def get_setting(setting, settings_json=settings):
     try:
         return settings_json[setting]
     except KeyError:
-        error_message = "Set the {} environment variable on settings.json".format(setting)
+        error_message = "Set the {setting} environment variable on settings.json".format(setting=setting)
         raise ImproperlyConfigured(error_message)
