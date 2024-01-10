@@ -24,7 +24,7 @@ TIME_ZONE = get_setting('TIME_ZONE')
 GitIgnore
 --
 
-Remember to add `settings.json` into your `.gitignore`, so it don't get tracked.
+Remember to add `settings.json` into your `.gitignore`, so it doesn't get tracked.
 
 ```
 settings.json
