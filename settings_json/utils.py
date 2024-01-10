@@ -28,5 +28,5 @@ def get_setting(setting, settings_json=settings):
     try:
         return settings_json[setting]
     except KeyError:
-        error_message = "Set the {setting} environment variable on settings.json".format(setting=setting)
+        error_message = f"Set the {setting} environment variable on settings.json"
         raise ImproperlyConfigured(error_message)
